@@ -1,6 +1,8 @@
 {
   "name": "mam-landing",
   "version": "0.1.0",
+  "author": "PT MITRA ABADI MAHAKAM",
+  "created": "Angko Muhtar",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,10 +11,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.0.16",
+    "aos": "^3.0.0-beta.6",
+    "axios": "^1.4.0",
     "eslint": "8.35.0",
     "eslint-config-next": "13.2.1",
     "next": "13.2.1",
+    "next-seo": "^5.15.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.9",
+    "react-responsive-masonry": "^2.1.7",
+    "sweetalert2": "^11.7.5",
+    "sweetalert2-react-content": "^5.0.7",
+    "swiper": "^9.1.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7"
   }
 }
