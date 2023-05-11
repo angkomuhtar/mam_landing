@@ -14,13 +14,14 @@ const Family = ({ className = "", appl_id, step }) => {
   const [saudara, setSaudara] = useState(2);
   const [anak, setAnak] = useState(1);
   const [sosial, setSosial] = useState(1);
-
+  const [loading, setLoading] = useState(false);
   const MySwal = withReactContent(Swal);
 
   const submitForm = async (e) => {
     e.preventDefault();
     let formdata = new FormData(EduForm.current);
     formdata.append("appl_id", appl_id);
+    setLoading(true);
     axios
       .post(process.env.NEXT_PUBLIC_API_URL + "/resume/family", formdata, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -33,14 +34,19 @@ const Family = ({ className = "", appl_id, step }) => {
         console.log(err);
         MySwal.fire({
           title: <strong>Terjadi Kesalahan</strong>,
-          html: <i>{`(${err.response.data.msg || "ERR"}) `}</i>,
+          html: <i>{`(${err?.response?.data.msg || "ERR NETWORK"}) `}</i>,
           icon: "error",
         });
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   return (
     <section className={`bg-muted ${className}`}>
+      {loading && <Loader />}
+
       <div className='container mx-auto py-20'>
         <form action='' onSubmit={(e) => submitForm(e)} ref={EduForm}>
           <div class='space-y-12'>

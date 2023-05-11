@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader";
 import axios from "axios";
 import React, { forwardRef, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -7,6 +8,7 @@ import withReactContent from "sweetalert2-react-content";
 const Personal = ({ className = "", step, setid }) => {
   const [imagePrev, setImagePrev] = useState("");
   const [imgFile, setImgFile] = useState(null);
+  const [loading, setLoading] = useState(false);
   const formPer = useRef();
   const handleImage = (e) => {
     let image_as_base64 = URL.createObjectURL(e.target.files[0]);
@@ -25,6 +27,7 @@ const Personal = ({ className = "", step, setid }) => {
   const submitForm = async (data) => {
     let formdata = new FormData(formPer.current);
     formdata.append("photo", imgFile);
+    setLoading(true);
     axios
       .post(process.env.NEXT_PUBLIC_API_URL + "/resume", formdata, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -38,14 +41,18 @@ const Personal = ({ className = "", step, setid }) => {
         console.log(err);
         MySwal.fire({
           title: <strong>Terjadi Kesalahan</strong>,
-          html: <i>{`(${err.response.data.msg || "ERR"}) `}</i>,
+          html: <i>{`(${err?.response?.data.msg || "ERR NETWORK"}) `}</i>,
           icon: "error",
         });
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   return (
     <section className={`bg-muted ${className}`}>
+      {loading && <Loader />}
       <div className='container mx-auto py-20'>
         <div class='space-y-12'>
           <div class={`border-b border-gray-900/10 pb-12`}>

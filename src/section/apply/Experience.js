@@ -20,6 +20,7 @@ const Experience = ({ className = "", appl_id, step }) => {
   const [startDate2, setStartDate2] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [endDate2, setEndDate2] = useState(new Date());
+  const [loading, setLoading] = useState(false);
 
   const MySwal = withReactContent(Swal);
 
@@ -29,6 +30,7 @@ const Experience = ({ className = "", appl_id, step }) => {
     formdata.append("appl_id", appl_id);
     formdata.append("mulai", [startDate, startDate2]);
     formdata.append("sampai", [endDate, endDate2]);
+    setLoading(true);
     axios
       .post(process.env.NEXT_PUBLIC_API_URL + "/resume/experience", formdata, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -41,14 +43,19 @@ const Experience = ({ className = "", appl_id, step }) => {
         console.log(err);
         MySwal.fire({
           title: <strong>Terjadi Kesalahan</strong>,
-          html: <i>{`(${err.response.data.msg || "ERR"}) `}</i>,
+          html: <i>{`(${err?.response?.data.msg || "ERR NETWORK"}) `}</i>,
           icon: "error",
         });
+      })
+      .finally(() => {
+        setLoading(false);
       });
   };
 
   return (
     <section className={`bg-muted ${className}`}>
+      {loading && <Loader />}
+
       <div className='container mx-auto py-20'>
         <form action='' onSubmit={(e) => submitForm(e)} ref={EduForm}>
           <div class='space-y-12'>
