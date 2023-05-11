@@ -61,14 +61,17 @@ const Header = ({ active }) => {
             className={`container mx-auto ${
               offset > 45 ? "py-4" : "py-8"
             } flex justify-between items-center transform duration-200`}>
-            <Link href='/'>
-              <Image
-                alt='logo'
-                src={`${router.basePath}/assets/images/logo.png`}
-                className='h-10'
-              />
-            </Link>
-            <div className='md:flex space-x-10 items-center hidden '>
+            <div className='w-16'>
+              <Link href='/'>
+                <Image
+                  alt='logo'
+                  src={`${router.basePath}/assets/images/logo.png`}
+                  height={37}
+                  width={51}
+                />
+              </Link>
+            </div>
+            <div className='md:flex space-x-10 items-center hidden'>
               <div
                 className={`flex justify-end md:space-x-4 ${
                   offset > 47 ? "text-black" : "text-red-700"
