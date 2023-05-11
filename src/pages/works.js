@@ -1,5 +1,6 @@
 import HeaderTitle from "@/components/HeaderTitle";
 import MainTemplate from "@/template/MainTemplate";
+import Image from "next/image";
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 
 const works = () => {
@@ -21,12 +22,12 @@ const works = () => {
       <main className='min-h-screen container mx-auto'>
         <ResponsiveMasonry columnsCountBreakPoints={{ 350: 1, 750: 2, 900: 3 }}>
           <Masonry gutter='2'>
-            <img className='p-4' src={url()} />
-            <img className='p-4' src={url()} />
-            <img className='p-4' src={url()} />
-            <img className='p-4' src={url()} />
-            <img className='p-4' src={url()} />
-            <img className='p-4' src={url()} />
+            <Image alt='last work' className='p-4' src={url()} />
+            <Image alt='last work' className='p-4' src={url()} />
+            <Image alt='last work' className='p-4' src={url()} />
+            <Image alt='last work' className='p-4' src={url()} />
+            <Image alt='last work' className='p-4' src={url()} />
+            <Image alt='last work' className='p-4' src={url()} />
           </Masonry>
         </ResponsiveMasonry>
       </main>

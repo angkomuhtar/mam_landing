@@ -6,7 +6,7 @@ import Family from "@/section/apply/Family";
 import Experience from "@/section/apply/Experience";
 import Question from "@/section/apply/Question";
 
-const apply = () => {
+const Apply = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [currId, setCurrId] = useState(0);
   console.log(currentStep);
@@ -38,9 +38,9 @@ const apply = () => {
 
           <div className='flex-1 bg-muted rounded-md p-6 self-start hidden'>
             <blockquote className='text-secondary text-sm mt-3 leading-5 font-light font-poppins italic'>
-              " You can have the best strategy and the best building in the
-              world, but if you don’t have the hearts and minds of the people
-              who work with you, none of it comes to life "
+              You can have the best strategy and the best building in the world,
+              but if you don’t have the hearts and minds of the people who work
+              with you, none of it comes to life
             </blockquote>
           </div>
         </section>
@@ -74,4 +74,4 @@ const apply = () => {
   );
 };
 
-export default apply;
+export default Apply;

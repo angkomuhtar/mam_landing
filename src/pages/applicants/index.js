@@ -5,10 +5,10 @@ import Link from "next/link";
 import React, { useState } from "react";
 import useSWR from "swr";
 
-const index = () => {
+const Index = () => {
   const fetcher = (url) => fetch(url).then((res) => res.json());
 
-  const [search, setSearch] = useState("");
+  // const [search, setSearch] = useState("");
   const { data, error, isLoading } = useSWR(
     process.env.NEXT_PUBLIC_API_URL + "/resume",
     fetcher
@@ -68,4 +68,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

@@ -8,6 +8,7 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 const Header = ({ active }) => {
   const [offset, setOffset] = useState(0);
@@ -61,7 +62,8 @@ const Header = ({ active }) => {
               offset > 45 ? "py-4" : "py-8"
             } flex justify-between items-center transform duration-200`}>
             <Link href='/'>
-              <img
+              <Image
+                alt='logo'
                 src={`${router.basePath}/assets/images/logo.png`}
                 className='h-10'
               />

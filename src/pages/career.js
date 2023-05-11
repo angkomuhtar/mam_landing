@@ -34,10 +34,10 @@ const career = () => {
 
           <div className='flex-1 bg-muted rounded-md p-6 self-start'>
             <blockquote className='text-secondary text-sm mt-3 leading-5 font-light font-poppins'>
-              " Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Deleniti exercitationem fugit aut veritatis veniam explicabo
-              pariatur excepturi, labore repudiandae voluptatibus atque esse.
-              Earum fuga alias qui fugiat, laboriosam ipsum sit. "
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti
+              exercitationem fugit aut veritatis veniam explicabo pariatur
+              excepturi, labore repudiandae voluptatibus atque esse. Earum fuga
+              alias qui fugiat, laboriosam ipsum sit.
             </blockquote>
           </div>
         </section>
