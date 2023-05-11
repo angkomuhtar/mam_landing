@@ -54,14 +54,16 @@ const Education = ({ className = "", appl_id, step }) => {
                 </div>
                 <p className=''>step 2 / 5</p>
               </div>
-              <div class='mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6 mb-4'>
+              <div class='mt-10 grid grid-cols-2 sm:grid-cols-6 mb-4 gap-x-6 gap-y-8'>
                 <h2 class='text-base font-semibold leading-7 text-gray-900 col-span-2 sm:col-span-6'>
                   Pendidikan Formal
                 </h2>
 
                 {Array.apply(0, Array(pendidikan)).map(function (x, i) {
                   return (
-                    <>
+                    <div
+                      className='col-span-2 sm:col-span-6 grid grid-cols-2 sm:grid-cols-6 gap-x-6 gap-y-8'
+                      key={i}>
                       <div class='col-span-2'>
                         <label
                           for='full-name'
@@ -174,7 +176,8 @@ const Education = ({ className = "", appl_id, step }) => {
                           </select>
                         </div>
                       </div>
-                    </>
+                      <div className='col-span-6 shadow-sm h-1'></div>
+                    </div>
                   );
                 })}
                 <div class='col-span-2 sm:col-span-6 gap-3 flex justify-end'>
@@ -229,265 +232,99 @@ const Education = ({ className = "", appl_id, step }) => {
                 <h2 class='text-base font-semibold leading-7 text-gray-900 sm:col-span-6 mb-6'>
                   Pendidikan Non Formal
                 </h2>
-                <div className='grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6 mb-6'>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Bidang/Jenis
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='tipe_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
+                {Array.apply(0, Array(3)).map(function (x, i) {
+                  return (
+                    <div
+                      className='grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6 mb-6'
+                      key={i}>
+                      <div class='sm:col-span-2'>
+                        <label
+                          for='full-name'
+                          class='block text-sm font-medium leading-6 text-gray-900'>
+                          Bidang/Jenis
+                        </label>
+                        <div class='mt-2'>
+                          <input
+                            type='text'
+                            name='tipe_kursus'
+                            class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                          />
+                        </div>
+                      </div>
+                      <div class='sm:col-span-2'>
+                        <label
+                          for='full-name'
+                          class='block text-sm font-medium leading-6 text-gray-900'>
+                          Penyelenggara
+                        </label>
+                        <div class='mt-2'>
+                          <input
+                            type='text'
+                            name='penyelenggara'
+                            class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                          />
+                        </div>
+                      </div>
+                      <div class='sm:col-span-2'>
+                        <label
+                          for='full-name'
+                          class='block text-sm font-medium leading-6 text-gray-900'>
+                          Kota
+                        </label>
+                        <div class='mt-2'>
+                          <input
+                            type='text'
+                            name='kota_kursus'
+                            class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                          />
+                        </div>
+                      </div>
+                      <div class='sm:col-span-2'>
+                        <label
+                          for='full-name'
+                          class='block text-sm font-medium leading-6 text-gray-900'>
+                          Lama Kursus
+                        </label>
+                        <div class='mt-2'>
+                          <input
+                            type='text'
+                            name='lama_kursus'
+                            class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                          />
+                        </div>
+                      </div>
+                      <div class='sm:col-span-2'>
+                        <label
+                          for='full-name'
+                          class='block text-sm font-medium leading-6 text-gray-900'>
+                          Tahun
+                        </label>
+                        <div class='mt-2'>
+                          <input
+                            type='text'
+                            name='tahun_kursus'
+                            class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                          />
+                        </div>
+                      </div>
+                      <div class='sm:col-span-2'>
+                        <label
+                          for='full-name'
+                          class='block text-sm font-medium leading-6 text-gray-900'>
+                          Di Bayar oleh
+                        </label>
+                        <div class='mt-2'>
+                          <input
+                            type='text'
+                            name='bayar_kursus'
+                            class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                          />
+                        </div>
+                      </div>
+                      <div className='col-span-2 sm:col-span-6 shadow-sm h-1'></div>
                     </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Penyelenggara
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='penyelenggara'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Kota
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='kota_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Lama Kursus
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='lama_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Tahun
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='tahun_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Di Bayar oleh
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='bayar_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div className='grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6 mb-6'>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Bidang/Jenis
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='tipe_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Penyelenggara
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='penyelenggara'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Kota
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='kota_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Lama Kursus
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='lama_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Tahun
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='tahun_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Di Bayar oleh
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='bayar_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                <div className='grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6 mb-6'>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Bidang/Jenis
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='tipe_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Penyelenggara
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='penyelenggara'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Kota
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='kota_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Lama Kursus
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='lama_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Tahun
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='tahun_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                  <div class='sm:col-span-2'>
-                    <label
-                      for='full-name'
-                      class='block text-sm font-medium leading-6 text-gray-900'>
-                      Di Bayar oleh
-                    </label>
-                    <div class='mt-2'>
-                      <input
-                        type='text'
-                        name='bayar_kursus'
-                        class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
-                      />
-                    </div>
-                  </div>
-                </div>
+                  );
+                })}
               </div>
 
               <div class='mt-10 grid gap-x-6 gap-y-8 mb-4'>
@@ -586,7 +423,9 @@ const Education = ({ className = "", appl_id, step }) => {
                       </select>
                     </div>
                   </div>
+                  <div className='col-span-2 sm:col-span-8 shadow-sm h-1'></div>
                 </div>
+
                 <div className='grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-8'>
                   <div class='col-span-2'>
                     <label
@@ -679,6 +518,7 @@ const Education = ({ className = "", appl_id, step }) => {
                       </select>
                     </div>
                   </div>
+                  <div className='col-span-2 sm:col-span-8 shadow-sm h-1'></div>
                 </div>
                 <div className='grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-8'>
                   <div class='col-span-2'>
@@ -772,6 +612,7 @@ const Education = ({ className = "", appl_id, step }) => {
                       </select>
                     </div>
                   </div>
+                  <div className='col-span-2 sm:col-span-8 shadow-sm h-1'></div>
                 </div>
                 <div className='grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-8'>
                   <div class='col-span-2'>
@@ -861,6 +702,7 @@ const Education = ({ className = "", appl_id, step }) => {
                       </select>
                     </div>
                   </div>
+                  <div className='col-span-2 sm:col-span-8 shadow-sm h-1'></div>
                 </div>
               </div>
             </div>

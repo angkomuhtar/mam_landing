@@ -4,11 +4,15 @@ import React, { forwardRef, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
+import "react-datepicker/dist/react-datepicker.css";
+import ReactDatePicker from "react-datepicker";
+import moment from "moment";
 
 const Personal = ({ className = "", step, setid }) => {
   const [imagePrev, setImagePrev] = useState("");
   const [imgFile, setImgFile] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [tglLahir, setTglLahir] = useState(new Date());
   const formPer = useRef();
   const handleImage = (e) => {
     let image_as_base64 = URL.createObjectURL(e.target.files[0]);
@@ -315,7 +319,7 @@ const Personal = ({ className = "", step, setid }) => {
                     )}
                   </div>
                 </div>
-                <div class='sm:col-span-4'>
+                <div class='sm:col-span-2'>
                   <label class='block text-sm font-medium leading-6 text-gray-900'>
                     No KTP
                   </label>
@@ -329,6 +333,51 @@ const Personal = ({ className = "", step, setid }) => {
                       aria-invalid={errors.id_card ? "true" : "false"}
                     />
                     {errors.id_card && (
+                      <p className='text-xs text-red-500 mt-1 mx-3 text-right'>
+                        {errors.id_card.message || "tidak boleh kosong"}
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div class='sm:col-span-2'>
+                  <label class='block text-sm font-medium leading-6 text-gray-900'>
+                    Kota/provinsi Kelahiran
+                  </label>
+                  <div class='mt-2'>
+                    <input
+                      type='text'
+                      name='tempat_lahir'
+                      class='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                      {...register("tempat_lahir", { required: true })}
+                      aria-invalid={errors.tempat_lahir ? "true" : "false"}
+                    />
+                    {errors.tempat_lahir && (
+                      <p className='text-xs text-red-500 mt-1 mx-3 text-right'>
+                        {errors.tempat_lahir.message || "tidak boleh kosong"}
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <div class='sm:col-span-2'>
+                  <label class='block text-sm font-medium leading-6 text-gray-900'>
+                    Tanggal Lahir
+                  </label>
+                  <div class='mt-2'>
+                    <input
+                      type='hidden'
+                      name='tgl_lahir'
+                      value={moment(tglLahir).format("YYYY-MM-DD")}
+                      {...register("tgl_lahir", { required: true })}
+                      aria-invalid={errors.tgl_lahir ? "true" : "false"}
+                    />
+                    <ReactDatePicker
+                      selected={tglLahir}
+                      className='block bg-transparent w-full rounded-md border-0 py-1.5 pl-3 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                      onChange={(date) => setTglLahir(date)}
+                      dateFormat='yyyy-MM-dd'
+                    />
+                    {errors.tgl_lahir && (
                       <p className='text-xs text-red-500 mt-1 mx-3 text-right'>
                         {errors.id_card.message || "tidak boleh kosong"}
                       </p>
@@ -469,6 +518,7 @@ const Personal = ({ className = "", step, setid }) => {
                         id='push-nothing'
                         name='married'
                         type='radio'
+                        value='broke'
                         class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
                       />
                       <label
@@ -550,6 +600,124 @@ const Personal = ({ className = "", step, setid }) => {
                   <label
                     for='phone'
                     class='block text-sm font-medium leading-6 text-gray-900'>
+                    Tempat Tinggal
+                  </label>
+                  <div class='mt-6 grid grid-cols-2'>
+                    <div class='flex items-center gap-x-3 mb-5'>
+                      <input
+                        id='push-everything'
+                        name='residence'
+                        value='own'
+                        type='radio'
+                        checked
+                        class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                      />
+                      <label
+                        for='push-everything'
+                        class='block text-sm font-medium leading-6 text-gray-900'>
+                        Milik Sendiri
+                      </label>
+                    </div>
+                    <div class='flex items-center gap-x-3 mb-5'>
+                      <input
+                        id='push-email'
+                        name='residence'
+                        value='parents'
+                        type='radio'
+                        class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                      />
+                      <label
+                        for='push-email'
+                        class='block text-sm font-medium leading-6 text-gray-900'>
+                        Milik Orang Tua
+                      </label>
+                    </div>
+                    <div class='flex items-center gap-x-3 mb-5'>
+                      <input
+                        id='push-nothing'
+                        name='residence'
+                        value='office'
+                        type='radio'
+                        class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                      />
+                      <label
+                        for='push-nothing'
+                        class='block text-sm font-medium leading-6 text-gray-900'>
+                        Milik Kantor
+                      </label>
+                    </div>
+                    <div class='flex items-center gap-x-3 mb-5'>
+                      <input
+                        id='push-nothing'
+                        name='residence'
+                        value='rent'
+                        type='radio'
+                        class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                      />
+                      <label
+                        for='push-nothing'
+                        class='block text-sm font-medium leading-6 text-gray-900'>
+                        Indekos
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class='sm:col-span-2'>
+                  <label
+                    for='phone'
+                    class='block text-sm font-medium leading-6 text-gray-900'>
+                    Kendaraan
+                  </label>
+                  <div class='mt-6 grid grid-cols-2'>
+                    <div class='flex items-center gap-x-3 mb-5'>
+                      <input
+                        id='push-everything'
+                        name='vehicle'
+                        value='own'
+                        type='radio'
+                        checked
+                        class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                      />
+                      <label
+                        for='push-everything'
+                        class='block text-sm font-medium leading-6 text-gray-900'>
+                        Milik Sendiri
+                      </label>
+                    </div>
+                    <div class='flex items-center gap-x-3 mb-5'>
+                      <input
+                        id='push-email'
+                        name='vehicle'
+                        value='parents'
+                        type='radio'
+                        class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                      />
+                      <label
+                        for='push-email'
+                        class='block text-sm font-medium leading-6 text-gray-900'>
+                        Milik Orang Tua
+                      </label>
+                    </div>
+                    <div class='flex items-center gap-x-3 mb-5'>
+                      <input
+                        id='push-nothing'
+                        name='vehicle'
+                        value='office'
+                        type='radio'
+                        class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
+                      />
+                      <label
+                        for='push-nothing'
+                        class='block text-sm font-medium leading-6 text-gray-900'>
+                        Milik Kantor
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class='sm:col-span-2'>
+                  <label
+                    for='phone'
+                    class='block text-sm font-medium leading-6 text-gray-900'>
                     Kondisi Kesehatan
                   </label>
                   <div class='mt-6 grid grid-cols-2'>
@@ -558,7 +726,7 @@ const Personal = ({ className = "", step, setid }) => {
                         id='push-everything'
                         name='health'
                         type='radio'
-                        value='seldom'
+                        value='jarang'
                         checked
                         class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
                       />
@@ -573,7 +741,7 @@ const Personal = ({ className = "", step, setid }) => {
                         id='push-email'
                         name='health'
                         type='radio'
-                        value='sometimes'
+                        value='kadang-kadang'
                         class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
                       />
                       <label
@@ -587,7 +755,7 @@ const Personal = ({ className = "", step, setid }) => {
                         id='push-nothing'
                         name='health'
                         type='radio'
-                        value='often'
+                        value='sering'
                         class='h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600'
                       />
                       <label

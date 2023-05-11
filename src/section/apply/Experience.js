@@ -6,6 +6,7 @@ import withReactContent from "sweetalert2-react-content";
 
 import "react-datepicker/dist/react-datepicker.css";
 import ReactDatePicker from "react-datepicker";
+import Loader from "@/components/Loader";
 
 const Experience = ({ className = "", appl_id, step }) => {
   const EduForm = useRef();
@@ -316,6 +317,7 @@ const Experience = ({ className = "", appl_id, step }) => {
                     />
                   </div>
                 </div>
+                <div className='col-span-2 sm:col-span-6 shadow-sm h-1'></div>
               </div>
 
               <div className='grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-6 mt-10 mb-4'>

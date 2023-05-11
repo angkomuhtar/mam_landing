@@ -1,3 +1,4 @@
+import Loader from "@/components/Loader";
 import axios from "axios";
 import React, { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -185,6 +186,7 @@ const Family = ({ className = "", appl_id, step }) => {
                           />
                         </div>
                       </div>
+                      <div className='col-span-2 sm:col-span-6 shadow-sm h-1'></div>
                     </>
                   );
                 })}
@@ -327,6 +329,7 @@ const Family = ({ className = "", appl_id, step }) => {
                           />
                         </div>
                       </div>
+                      <div className='col-span-2 sm:col-span-6 shadow-sm h-1'></div>
                     </>
                   );
                 })}
@@ -416,6 +419,7 @@ const Family = ({ className = "", appl_id, step }) => {
                           />
                         </div>
                       </div>
+                      <div className='col-span-2 sm:col-span-8 shadow-sm h-1'></div>
                     </>
                   );
                 })}
@@ -492,6 +496,7 @@ const Family = ({ className = "", appl_id, step }) => {
                           />
                         </div>
                       </div>
+                      <div className='col-span-2 sm:col-span-8 shadow-sm h-1'></div>
                     </>
                   );
                 })}

@@ -7,6 +7,7 @@ import withReactContent from "sweetalert2-react-content";
 import "react-datepicker/dist/react-datepicker.css";
 import ReactDatePicker from "react-datepicker";
 import { useRouter } from "next/router";
+import Loader from "@/components/Loader";
 
 const Question = ({ className = "", appl_id, step }) => {
   const EduForm = useRef();
