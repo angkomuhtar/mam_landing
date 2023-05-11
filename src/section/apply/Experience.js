@@ -30,7 +30,7 @@ const Experience = ({ className = "", appl_id, step }) => {
     formdata.append("mulai", [startDate, startDate2]);
     formdata.append("sampai", [endDate, endDate2]);
     axios
-      .post("http://localhost:3002/v1/resume/experience", formdata, {
+      .post(process.env.NEXT_PUBLIC_API_URL + "/resume/experience", formdata, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {

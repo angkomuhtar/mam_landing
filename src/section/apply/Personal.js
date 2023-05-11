@@ -26,7 +26,7 @@ const Personal = ({ className = "", step, setid }) => {
     let formdata = new FormData(formPer.current);
     formdata.append("photo", imgFile);
     axios
-      .post("http://localhost:3002/v1/resume", formdata, {
+      .post(process.env.NEXT_PUBLIC_API_URL + "/resume", formdata, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {

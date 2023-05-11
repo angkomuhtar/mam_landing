@@ -13,7 +13,7 @@ const Education = ({ className = "", appl_id, step }) => {
     let formdata = new FormData(EduForm.current);
     formdata.append("appl_id", appl_id);
     axios
-      .post("http://localhost:3002/v1/resume/education", formdata, {
+      .post(process.env.NEXT_PUBLIC_API_URL + "/resume/education", formdata, {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
