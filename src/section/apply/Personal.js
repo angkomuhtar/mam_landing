@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { forwardRef, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
-const Personal = ({ className = "", step, setId }) => {
+const Personal = ({ className = "", step, setid }) => {
   const [imagePrev, setImagePrev] = useState("");
   const [imgFile, setImgFile] = useState(null);
   const formPer = useRef();
@@ -18,6 +20,8 @@ const Personal = ({ className = "", step, setId }) => {
     handleSubmit,
   } = useForm();
 
+  const MySwal = withReactContent(Swal);
+
   const submitForm = async (data) => {
     let formdata = new FormData(formPer.current);
     formdata.append("photo", imgFile);
@@ -26,12 +30,17 @@ const Personal = ({ className = "", step, setId }) => {
         headers: { "Content-Type": "multipart/form-data" },
       })
       .then((res) => {
-        console.log(res);
+        console.log(res.data.msg.id);
         step(2);
-        setId(res.msg.id);
+        setid(res.data.msg.id);
       })
       .catch((err) => {
-        console.log(err.response.data);
+        console.log(err);
+        MySwal.fire({
+          title: <strong>Terjadi Kesalahan</strong>,
+          html: <i>{`(${err.response.data.msg || "ERR"}) `}</i>,
+          icon: "error",
+        });
       });
   };
 

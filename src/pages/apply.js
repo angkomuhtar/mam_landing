@@ -4,10 +4,11 @@ import { Education, Personal } from "@/section/apply";
 import { createRef, useRef, useState } from "react";
 import Family from "@/section/apply/Family";
 import Experience from "@/section/apply/Experience";
+import Question from "@/section/apply/Question";
 
 const apply = () => {
-  const [currentStep, setCurrentStep] = useState(3);
-  const [currId, setCurrId] = useState("");
+  const [currentStep, setCurrentStep] = useState(1);
+  const [currId, setCurrId] = useState(0);
   console.log(currentStep);
   return (
     <MainTemplate
@@ -62,6 +63,11 @@ const apply = () => {
           step={setCurrentStep}
           appl_id={currId}
           className={currentStep == 4 ? "" : "hidden"}
+        />
+        <Question
+          step={setCurrentStep}
+          appl_id={currId}
+          className={currentStep == 5 ? "" : "hidden"}
         />
       </main>
     </MainTemplate>

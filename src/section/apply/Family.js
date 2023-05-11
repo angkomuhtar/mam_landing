@@ -20,7 +20,7 @@ const Family = ({ className = "", appl_id, step }) => {
   const submitForm = async (e) => {
     e.preventDefault();
     let formdata = new FormData(EduForm.current);
-    formdata.append("appl_id", 17);
+    formdata.append("appl_id", appl_id);
     axios
       .post("http://localhost:3002/v1/resume/family", formdata, {
         headers: { "Content-Type": "multipart/form-data" },
@@ -493,7 +493,7 @@ const Family = ({ className = "", appl_id, step }) => {
 
               <div class='mt-10 grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-8 mb-4'>
                 <h2 class='text-base font-semibold leading-7 text-gray-900 col-span-2 sm:col-span-8 capitalize'>
-                  Kepada Siapa kami meminta referensi lengkap tentang diri anda
+                  Kegiatan Sosial
                 </h2>
 
                 {Array.apply(0, Array(sosial)).map(function (x, i) {
